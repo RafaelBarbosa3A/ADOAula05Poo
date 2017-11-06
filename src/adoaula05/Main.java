@@ -5,19 +5,25 @@
  */
 package adoaula05;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author rafael
  */
-public class Main{
+public class Main extends Produto{
 
-    /**
-     * @param args the command line arguments
-     */
+    public Main(String nome, int qtdade, double metro, double peso, Date fabricacao) {
+        super(nome, qtdade, metro, peso, fabricacao);
+        
+    }
     public static void main(String[] args) {
-        // TODO code application logic here
+        //SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Produto novo = new Produto(nome, qtdade, metro, peso, validade);
+        //System.out.println(formatter.format(novo.getFabricacao()));
+        System.out.println(formatter.format(novo.getValidade()));
     }
 
-    
-    
 }

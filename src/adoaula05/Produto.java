@@ -5,7 +5,7 @@
  */
 package adoaula05;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -16,17 +16,19 @@ import java.util.GregorianCalendar;
 public class Produto {
 
     static String nome;
-    int qtdade;
-    double metro, peso;
-    static String fabricacao;
-    //System.out.println(data.get(data.DAY_OF_MONTH)+" / "+(data.get(data.MONTH)+1)+" / "+data.get(data.YEAR));
+    static int qtdade;
+    static double metro, peso;
+    static Date validade = new Date();
+    static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    
+    
 
-    public Produto(String nome, int qtdade, double metro, double peso, String fabricacao) {
+    public Produto(String nome, int qtdade, double metro, double peso, Date validade) {
         this.nome = nome;
         this.qtdade = qtdade;
         this.metro = metro;
         this.peso = peso;
-        this.fabricacao = fabricacao;
+        this.validade = validade;
     }
 
     public String getNome() {
@@ -61,18 +63,12 @@ public class Produto {
         this.peso = peso;
     }
 
-    public String getFabricacao() {
-        return fabricacao;
+    public Date getValidade() {
+        return validade;
     }
 
-    public void setValidade(String fabricacao) {
-        int dia = GregorianCalendar.DAY_OF_MONTH;
-        int mes = ((GregorianCalendar.MONTH) + 1);
-        int ano = GregorianCalendar.YEAR;
-        this.fabricacao = dia + " / " + mes + " / " + ano;
+    public void setValidade(Date fabricacao) {
+        this.validade = fabricacao;
     }
-    
-    
-
 
 }

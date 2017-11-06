@@ -6,6 +6,7 @@
 package adoaula05;
 
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  *
@@ -13,9 +14,11 @@ import java.util.Arrays;
  */
 public class Estoque extends Produto{
     
-    public Estoque(String nome, int qtdade, double metro, double peso, String fabricacao) {
+    public Estoque(String nome, int qtdade, double metro, double peso, Date fabricacao) {
         super(nome, qtdade, metro, peso, fabricacao);
     }
+    
+    
     
     
 }
