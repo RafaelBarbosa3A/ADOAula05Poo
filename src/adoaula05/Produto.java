@@ -6,6 +6,7 @@
 package adoaula05;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -13,17 +14,15 @@ import java.util.GregorianCalendar;
  *
  * @author rafael
  */
-public class Produto {
+public class Produto implements Metodos {
 
-    static String nome;
-    static int qtdade;
-    static double metro, peso;
-    static Date validade = new Date();
-    static SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    
-    
+    String nome;
+    int qtdade;
+    double metro, peso;
+    String validade;
 
-    public Produto(String nome, int qtdade, double metro, double peso, Date validade) {
+    public Produto(String nome, int qtdade, double metro, double peso,
+            String validade) {
         this.nome = nome;
         this.qtdade = qtdade;
         this.metro = metro;
@@ -63,12 +62,37 @@ public class Produto {
         this.peso = peso;
     }
 
-    public Date getValidade() {
+    public String getValidade() {
         return validade;
     }
 
-    public void setValidade(Date fabricacao) {
-        this.validade = fabricacao;
+    public void setValidade(int dia, int mes, int ano) {
+        this.validade = String.valueOf(dia) + "/" + String.valueOf(mes) + "/" + String.valueOf(ano);
+    }
+
+    static GregorianCalendar dataAtual = new GregorianCalendar();
+    //static SimpleDateFormat dataFormatada = new SimpleDateFormat("dd/MM/yyyy");
+    //static Date dt = new Date();
+
+    @Override
+    public boolean verificarVencido() {
+
+        if (dataFormatada.toString().equalsIgnoreCase(this.validade)) {
+            System.out.println("produto vencido");
+        }
+        return false;
+    }
+
+    @Override
+    public boolean alertaVencimento() {
+        GregorianCalendar dia = new GregorianCalendar();
+        int dataFutura = dia.get(GregorianCalendar.DAY_OF_MONTH) + 7;
+        
+        if (this.validade.equalsIgnoreCase(dataFutura) || this.validade.equalsIgnoreCase(dataAtual)){
+            System.out.println("produto vencerá em até 7 dias");
+        }
+        
+        return false;
     }
 
 }

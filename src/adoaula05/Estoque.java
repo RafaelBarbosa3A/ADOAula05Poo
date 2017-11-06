@@ -14,9 +14,11 @@ import java.util.Date;
  */
 public class Estoque extends Produto{
     
-    public Estoque(String nome, int qtdade, double metro, double peso, Date fabricacao) {
-        super(nome, qtdade, metro, peso, fabricacao);
+    public Estoque(String nome, int qtdade, double metro, double peso, String validadeConvert) {
+        super(nome, qtdade, metro, peso, validadeConvert);
     }
+    
+    
     
     
     

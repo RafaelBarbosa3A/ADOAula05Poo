@@ -11,4 +11,7 @@ package adoaula05;
  */
 interface Metodos {
     
+    public boolean verificarVencido();
+    public boolean alertaVencimento();
+    
 }
